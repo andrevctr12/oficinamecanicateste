@@ -13,6 +13,9 @@ public class Cliente {
     private Endereco endereco;
     private TelCliente telCliente;
     private String email;
+    private Veiculo veiculo;
+
+
 
     public String getEmail() {
         return email;
@@ -88,10 +91,19 @@ public class Cliente {
 
     }
 
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
+    }
+
     @Override
     public String toString() {
         return "Cliente{" +
                 "ID=" + ID +
+
                 ", nome='" + nome + '\'' +
                 ", cpf='" + cpf + '\'' +
                 ", Senha='" + Senha + '\'' +
@@ -101,4 +113,6 @@ public class Cliente {
                 ", telCliente=" + telCliente +
                 '}';
     }
+
+
 }
