@@ -1,6 +1,7 @@
 package com.unioeste.oficina.controllers;
 
 
+import java.util.List;
 import com.unioeste.oficina.model.Cliente;
 import com.unioeste.oficina.repositories.ClienteDAO;
 import org.springframework.http.HttpStatus;
@@ -8,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/cliente")
@@ -16,8 +16,8 @@ public class ClienteController {
 
     @GetMapping(produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
-    public ArrayList<Cliente> ListaCliente() {
-        ArrayList<Cliente> listaCliente = null;
+    public List<Cliente> ListaCliente() {
+        List<Cliente> listaCliente = null;
         try {
             listaCliente = new ClienteDAO().BuscaLista();
         }
