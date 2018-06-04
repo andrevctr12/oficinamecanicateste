@@ -29,10 +29,9 @@ public class ConexaoBD {
 
 
 
-
-//            String url = "jdbc:mariadb://localhost:3306/oficina?";
-//            String user = "root";
-//            String password = "";
+          /*    String url = "jdbc:mariadb://localhost:3306/oficina?";
+              String user = "root";
+              String password = "";*/
             connection = DriverManager.getConnection(url, user, password);
 
             //connection = DriverManager.getConnection("mariadb://phryiu84huu99igi:sff4p0egqwaypaz4@c9cujduvu830eexs.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/eksp46ld8nijkrli");

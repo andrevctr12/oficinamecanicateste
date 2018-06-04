@@ -194,13 +194,13 @@ public class ClienteDAO {
         emailClienteDAO.AlteraEmail(cliente.getID(),cliente.getEmail());
 
         st.executeQuery(" SET FOREIGN_KEY_CHECKS=0 ");
-        System.out.println(cliente.getEndereco().getId());
         if (cliente.getComplemento() == null)
         {
             st.executeQuery("UPDATE cliente SET  nomeCliente = '"+cliente.getNome()+"'," +
                     " CPF = '"+cliente.getCpf()+"' ," +
                     "  número_endereço = "+cliente.getEnd_num()+"," +
                     "endereçoCliente_idendereçoCliente = " +cliente.getEndereco().getId() +
+                    ", TelCliente_TelClienteid =" + cliente.getTelCliente().getID() +
                     " Senha = '" +cliente.getSenha()+"'"+ "Complemento = NULL"+
                     "where nomeCliente like "+cliente.getNome()+" and CPF = "+cliente.getCpf());
         }else {
@@ -210,17 +210,18 @@ public class ClienteDAO {
                     "Complemento = '" + cliente.getComplemento()+ "'," +
                     " Senha = '" +cliente.getSenha()+"'"+","+
                     "endereçoCliente_idendereçoCliente = " +cliente.getEndereco().getId() +
+                    ", TelCliente_TelClienteid =" + cliente.getTelCliente().getID() +
                     " where nomeCliente like '"+cliente.getNome()+"' and CPF = "+cliente.getCpf());
 
         }
         st.executeQuery(" SET FOREIGN_KEY_CHECKS=1 ");
-        System.out.println("UPDATE cliente SET  nomeCliente = '"+cliente.getNome()+"'," +
+      /*  System.out.println("UPDATE cliente SET  nomeCliente = '"+cliente.getNome()+"'," +
                 " CPF = '"+cliente.getCpf()+"' ," +
                 "  número_endereço = "+cliente.getEnd_num()+"," +
                 "Complemento = '" + cliente.getComplemento()+ "'," +
                 " Senha = '" +cliente.getSenha()+"'"+","+
                 "endereçoCliente_idendereçoCliente = " +cliente.getEndereco().getId() +
-                " where nomeCliente like '"+cliente.getNome()+"' and CPF = "+cliente.getCpf());
+                " where nomeCliente like '"+cliente.getNome()+"' and CPF = "+cliente.getCpf());*/
 
         c.close();
 

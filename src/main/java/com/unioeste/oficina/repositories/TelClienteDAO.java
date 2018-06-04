@@ -50,7 +50,7 @@ public class TelClienteDAO {
     public TelCliente BuscaTelCliente(String tel) throws SQLException {
         Connection c = new ConexaoBD().getConexaoMySQL();
         java.sql.Statement st = c.createStatement();
-        ResultSet r = st.executeQuery("SELECT * FROM telefone WHERE Telefone like " + tel);
+        ResultSet r = st.executeQuery("SELECT * FROM telefone WHERE Telefone like '" + tel+ "'");
 
         TelCliente telCliente = null;
         while (r.next())
@@ -69,19 +69,22 @@ public class TelClienteDAO {
 
     public void AlteraTel(TelCliente telCliente) throws SQLException {
         Connection c = new ConexaoBD().getConexaoMySQL();
-        java.sql.Statement st = c.createStatement();
         DDDDAO ddddao = new DDDDAO();
+        TelClienteDAO telClienteDAO = new TelClienteDAO();
 
-//        System.out.println(telCliente.getDDD());
         if (ddddao.BuscaDDD(telCliente.getDDD()) == null)
         {
 
             DDD ddd = new DDD(telCliente.getDDD());
             ddddao.CadastraDDD(ddd);
         }
+        if (telClienteDAO.BuscaTelCliente(telCliente.getTelefone()) == null)
+        {
+            telClienteDAO.CadastraTelCliente(telCliente);
 
-        st.executeQuery("UPDATE telefone SET  Telefone = '"+telCliente.getTelefone()+"', DDD_idDDD ="+ telCliente.getDDD() +
-                " WHERE  Telefoneid =" + telCliente.getID());
+            telCliente.setID(BuscaTelCliente(telCliente.getTelefone()).getID());
+        }
+
         c.close();
     }
 }

@@ -3,6 +3,7 @@ package com.unioeste.oficina.repositories;
 
 
 import com.unioeste.oficina.model.Cliente;
+import com.unioeste.oficina.model.Email;
 import com.unioeste.oficina.utils.ConexaoBD;
 
 import java.sql.Connection;
@@ -38,6 +39,40 @@ public class EmailClienteDAO {
 
         return email;
     }
+    public int Buscaid(int idCliente) throws SQLException {
+        Connection c = new ConexaoBD().getConexaoMySQL();
+        java.sql.Statement st = c.createStatement();
+        ResultSet r = st.executeQuery("SELECT * FROM emailcliente WHERE Cliente_idCliente = " + idCliente );
+
+        int ID = 0;
+        while (r.next()){
+
+            ID = (r.getInt("idemailCliente"));
+
+
+        }
+
+        c.close();
+
+        return ID;
+    }
+
+    public Email BuscaEmailbyString(String email) throws SQLException {
+        Connection c = new ConexaoBD().getConexaoMySQL();
+        java.sql.Statement st = c.createStatement();
+        ResultSet r = st.executeQuery("SELECT * FROM emailcliente WHERE emailCliente like '" + email + "'");
+
+        while (r.next()){
+
+            Email email1 = new Email();
+            return email1;
+
+
+        }
+        return null;
+    }
+
+
 
     public void BuscaEmailLista(ArrayList<Cliente> listaCliente) throws SQLException {
         EmailClienteDAO emailClienteDAO = new EmailClienteDAO();
@@ -46,13 +81,17 @@ public class EmailClienteDAO {
         }
     }
 
-    public void AlteraEmail(int id, String email) throws SQLException {
-        Connection c = new ConexaoBD().getConexaoMySQL();
-        java.sql.Statement st = c.createStatement();
-        ResultSet r = st.executeQuery("UPDATE  emailcliente SET" +
-                " emailcliente = '" + email +"' WHERE  Cliente_idCliente = " + id);
+    public void  AlteraEmail(int id, String email) throws SQLException {
+        EmailClienteDAO emailClienteDAO = new EmailClienteDAO();
 
-        c.close();
+        System.out.println("aaa");
+        if(emailClienteDAO.BuscaEmailbyString(email) == null)
+        {
+            System.out.println("a");
+            emailClienteDAO.CadastraEmail(email,id);
+
+        }
+
 
     }
 }

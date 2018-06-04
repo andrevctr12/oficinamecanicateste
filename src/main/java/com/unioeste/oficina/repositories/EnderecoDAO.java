@@ -123,8 +123,6 @@ public class EnderecoDAO {    public void CadastraEnd(Endereco endereco) throws 
 
     public void AlteraEndereco(Endereco endereco) throws SQLException {
         EnderecoDAO enderecoDAO = new EnderecoDAO();
-        Connection c = new ConexaoBD().getConexaoMySQL();
-        java.sql.Statement st = c.createStatement();
 
         RuaDAO ruaDAO = new RuaDAO();
         if(ruaDAO.BuscaRua(endereco.getRua().getNomeRua()) == null)
@@ -159,7 +157,6 @@ public class EnderecoDAO {    public void CadastraEnd(Endereco endereco) throws 
         endereco.setId(enderecoDAO.BuscaEnderecoByIds(endereco.getRua().getID(),endereco.getBairro().getID(),
                 endereco.getCidade().getId(),endereco.getCEP()).getId());
 
-        c.close();
 
     }
 }
