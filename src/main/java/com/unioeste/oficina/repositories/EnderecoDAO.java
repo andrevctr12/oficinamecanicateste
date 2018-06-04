@@ -4,6 +4,7 @@ import com.unioeste.oficina.model.Bairro;
 import com.unioeste.oficina.model.Cidade;
 import com.unioeste.oficina.model.Endereco;
 import com.unioeste.oficina.model.Rua;
+import com.unioeste.oficina.utils.ConexaoBD;
 
 
 import java.sql.Connection;

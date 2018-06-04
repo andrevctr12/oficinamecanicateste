@@ -3,6 +3,7 @@ package com.unioeste.oficina.repositories;
 
 
 import com.unioeste.oficina.model.Cliente;
+import com.unioeste.oficina.utils.ConexaoBD;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

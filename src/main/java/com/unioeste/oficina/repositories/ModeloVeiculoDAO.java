@@ -1,6 +1,7 @@
 package com.unioeste.oficina.repositories;
 
 import com.unioeste.oficina.model.ModeloVeiculo;
+import com.unioeste.oficina.utils.ConexaoBD;
 
 
 import java.sql.Connection;

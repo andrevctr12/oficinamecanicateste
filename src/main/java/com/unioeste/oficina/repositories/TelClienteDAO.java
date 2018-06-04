@@ -3,6 +3,7 @@ package com.unioeste.oficina.repositories;
 
 import com.unioeste.oficina.model.DDD;
 import com.unioeste.oficina.model.TelCliente;
+import com.unioeste.oficina.utils.ConexaoBD;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

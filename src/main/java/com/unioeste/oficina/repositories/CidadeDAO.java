@@ -2,6 +2,7 @@ package com.unioeste.oficina.repositories;
 
 import com.unioeste.oficina.model.Cidade;
 import com.unioeste.oficina.model.UF;
+import com.unioeste.oficina.utils.ConexaoBD;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
