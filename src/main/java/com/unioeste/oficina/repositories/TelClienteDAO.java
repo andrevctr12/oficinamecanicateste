@@ -72,7 +72,9 @@ public class TelClienteDAO {
         java.sql.Statement st = c.createStatement();
         DDDDAO ddddao = new DDDDAO();
 
-        if (ddddao.BuscaDDD(telCliente.getDDD())==null){
+//        System.out.println(telCliente.getDDD());
+        if (ddddao.BuscaDDD(telCliente.getDDD()) == null)
+        {
 
             DDD ddd = new DDD(telCliente.getDDD());
             ddddao.CadastraDDD(ddd);

@@ -1,5 +1,6 @@
 package com.unioeste.oficina.repositories;
 
+import com.unioeste.oficina.model.MarcaVeiculo;
 import com.unioeste.oficina.model.Veiculo;
 import com.unioeste.oficina.utils.ConexaoBD;
 

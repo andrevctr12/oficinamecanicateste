@@ -4,7 +4,9 @@ import com.unioeste.oficina.model.Bairro;
 import com.unioeste.oficina.model.Cidade;
 import com.unioeste.oficina.model.Endereco;
 import com.unioeste.oficina.model.Rua;
+
 import com.unioeste.oficina.utils.ConexaoBD;
+
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -120,26 +122,43 @@ public class EnderecoDAO {    public void CadastraEnd(Endereco endereco) throws 
 
 
     public void AlteraEndereco(Endereco endereco) throws SQLException {
+        EnderecoDAO enderecoDAO = new EnderecoDAO();
         Connection c = new ConexaoBD().getConexaoMySQL();
         java.sql.Statement st = c.createStatement();
 
         RuaDAO ruaDAO = new RuaDAO();
-        ruaDAO.AlteraRuA(endereco.getRua());
+        if(ruaDAO.BuscaRua(endereco.getRua().getNomeRua()) == null)
+        {
+            ruaDAO.CadastraRua(endereco.getRua());
+            endereco.getRua().setID(ruaDAO.BuscaRua(endereco.getRua().getNomeRua()).getID());
+        }
 
-        CidadeDAO cidadeDAO = new CidadeDAO();
-        cidadeDAO.AlteraCidade(endereco.getCidade());
 
         BairroDAO bairroDAO = new BairroDAO();
-        bairroDAO.AlteraBairro(endereco.getBairro());
+        if (bairroDAO.BuscaBairro(endereco.getBairro().getNome()) == null)
+        {
+
+            bairroDAO.CadastraBairro(endereco.getBairro());
+            endereco.getBairro().setID(bairroDAO.BuscaBairro(endereco.getBairro().getNome()).getID());
+        }
 
 
 
+        CidadeDAO cidadeDAO = new CidadeDAO();
+        if (cidadeDAO.BuscaCidade(endereco.getCidade().getNome()) == null)
+        {
+            cidadeDAO.CadastraCidade(endereco.getCidade());
+            endereco.getCidade().setId(cidadeDAO.BuscaCidade(endereco.getCidade().getNome()).getId());
+        }
+        if (enderecoDAO.BuscaEnderecoByIds(endereco.getRua().getID(),endereco.getBairro().getID(),
+                endereco.getCidade().getId(),endereco.getCEP()) == null) {
+            enderecoDAO.CadastraEnd(endereco);
+        }
 
+        //System.out.println("aa");
+        endereco.setId(enderecoDAO.BuscaEnderecoByIds(endereco.getRua().getID(),endereco.getBairro().getID(),
+                endereco.getCidade().getId(),endereco.getCEP()).getId());
 
-
-        st.executeQuery("UPDATE endereçocliente SET " +
-                "CEP = '"+ endereco.getCEP() +
-                "'WHERE idendereçoCliente =  "+ endereco.getId());
         c.close();
 
     }
