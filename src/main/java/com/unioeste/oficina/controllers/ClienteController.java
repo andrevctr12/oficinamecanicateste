@@ -1,12 +1,10 @@
 package com.unioeste.oficina.controllers;
 
-import com.sun.deploy.net.HttpResponse;
-import com.unioeste.oficina.repositories.ClienteDAO;
+
 import com.unioeste.oficina.model.Cliente;
-import org.springframework.http.HttpHeaders;
+import com.unioeste.oficina.repositories.ClienteDAO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;

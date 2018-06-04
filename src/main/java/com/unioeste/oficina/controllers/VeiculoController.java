@@ -1,15 +1,13 @@
 package com.unioeste.oficina.controllers;
 
-import java.util.List;
-import com.unioeste.oficina.repositories.VeiculoDAO;
 import com.unioeste.oficina.model.Veiculo;
+import com.unioeste.oficina.repositories.VeiculoDAO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/veiculo")

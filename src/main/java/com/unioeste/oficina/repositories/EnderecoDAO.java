@@ -6,7 +6,6 @@ import com.unioeste.oficina.model.Endereco;
 import com.unioeste.oficina.model.Rua;
 import com.unioeste.oficina.utils.ConexaoBD;
 
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
