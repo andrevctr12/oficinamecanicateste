@@ -1,7 +1,7 @@
-package es1.oficina.controllers;
+package com.unioeste.oficina.controllers;
 
-import DAO.ClienteDAO;
-import Model.Cliente;
+import com.unioeste.oficina.repositories.ClienteDAO;
+import com.unioeste.oficina.model.Cliente;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 

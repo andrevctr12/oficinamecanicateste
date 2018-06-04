@@ -1,4 +1,4 @@
-package Model;
+package com.unioeste.oficina.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

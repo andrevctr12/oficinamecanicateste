@@ -1,4 +1,4 @@
-package Model;
+package com.unioeste.oficina.model;
 
 public class Cidade {
     private int id;
@@ -32,11 +32,11 @@ public class Cidade {
         this.nome = nome;
     }
 
-    public Model.UF getUF() {
+    public com.unioeste.oficina.model.UF getUF() {
         return UF;
     }
 
-    public void setUF(Model.UF UF) {
+    public void setUF(com.unioeste.oficina.model.UF UF) {
         this.UF = UF;
     }
 

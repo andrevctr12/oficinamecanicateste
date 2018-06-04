@@ -1,4 +1,4 @@
-package Model;
+package com.unioeste.oficina.model;
 
 
 public class Endereco {
@@ -29,27 +29,27 @@ public class Endereco {
         this.id = id;
     }
 
-    public Model.Bairro getBairro() {
+    public com.unioeste.oficina.model.Bairro getBairro() {
         return Bairro;
     }
 
-    public void setBairro(Model.Bairro bairro) {
+    public void setBairro(com.unioeste.oficina.model.Bairro bairro) {
         Bairro = bairro;
     }
 
-    public Model.Rua getRua() {
+    public com.unioeste.oficina.model.Rua getRua() {
         return Rua;
     }
 
-    public void setRua(Model.Rua rua) {
+    public void setRua(com.unioeste.oficina.model.Rua rua) {
         Rua = rua;
     }
 
-    public Model.Cidade getCidade() {
+    public com.unioeste.oficina.model.Cidade getCidade() {
         return Cidade;
     }
 
-    public void setCidade(Model.Cidade cidade) {
+    public void setCidade(com.unioeste.oficina.model.Cidade cidade) {
         Cidade = cidade;
     }
 

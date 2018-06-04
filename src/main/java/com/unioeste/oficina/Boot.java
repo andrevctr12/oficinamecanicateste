@@ -1,4 +1,4 @@
-package es1.oficina;
+package com.unioeste.oficina;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

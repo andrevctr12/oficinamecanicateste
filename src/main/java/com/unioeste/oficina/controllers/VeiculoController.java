@@ -1,7 +1,7 @@
-package es1.oficina.controllers;
+package com.unioeste.oficina.controllers;
 
-import DAO.VeiculoDAO;
-import Model.Veiculo;
+import com.unioeste.oficina.repositories.VeiculoDAO;
+import com.unioeste.oficina.model.Veiculo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
