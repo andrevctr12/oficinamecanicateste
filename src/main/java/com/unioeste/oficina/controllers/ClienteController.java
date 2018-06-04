@@ -48,10 +48,10 @@ public class ClienteController {
         Cliente cliente = null;
         try {
             cliente = new ClienteDAO().BuscaClienteID(id);
-            return ResponseEntity.ok().body(cliente);
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        if (cliente != null) return ResponseEntity.ok().body(cliente);
 
         return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
