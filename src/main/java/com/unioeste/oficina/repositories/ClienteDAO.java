@@ -179,7 +179,7 @@ public class ClienteDAO {
         c.close();
     }
 
-    public void AlteraCliente(Cliente cliente) throws SQLException {
+    public Cliente AlteraCliente(Cliente cliente) throws SQLException {
         Connection c = new ConexaoBD().getConexaoMySQL();
         java.sql.Statement st = c.createStatement();
 
@@ -210,5 +210,6 @@ public class ClienteDAO {
         }
 
         c.close();
+        return new ClienteDAO().BuscaClienteID(cliente.getID());
     }
 }
