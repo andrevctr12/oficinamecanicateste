@@ -61,6 +61,7 @@ public class ClienteController {
     public ResponseEntity<?> AlteraCliente(@RequestBody Cliente cliente) {
         Cliente put = null;
         try {
+
             put = new ClienteDAO().AlteraCliente(cliente);
         } catch (SQLException e) {
             e.printStackTrace();

@@ -196,14 +196,16 @@ public class ClienteDAO {
         st.executeQuery(" SET FOREIGN_KEY_CHECKS=0 ");
         if (cliente.getComplemento() == null)
         {
+            System.out.println("b");
             st.executeQuery("UPDATE cliente SET  nomeCliente = '"+cliente.getNome()+"'," +
                     " CPF = '"+cliente.getCpf()+"' ," +
                     "  número_endereço = "+cliente.getEnd_num()+"," +
                     "endereçoCliente_idendereçoCliente = " +cliente.getEndereco().getId() +
                     ", TelCliente_TelClienteid =" + cliente.getTelCliente().getID() +
                     " Senha = '" +cliente.getSenha()+"'"+ "Complemento = NULL"+
-                    "where nomeCliente like "+cliente.getNome()+" and CPF = "+cliente.getCpf());
+                    "where idCliente  = "+cliente.getID());
         }else {
+            System.out.println("a");
             st.executeQuery("UPDATE cliente SET  nomeCliente = '"+cliente.getNome()+"'," +
                     " CPF = '"+cliente.getCpf()+"' ," +
                     "  número_endereço = "+cliente.getEnd_num()+"," +
@@ -211,20 +213,22 @@ public class ClienteDAO {
                     " Senha = '" +cliente.getSenha()+"'"+","+
                     "endereçoCliente_idendereçoCliente = " +cliente.getEndereco().getId() +
                     ", TelCliente_TelClienteid =" + cliente.getTelCliente().getID() +
-                    " where nomeCliente like '"+cliente.getNome()+"' and CPF = "+cliente.getCpf());
+                    " where idCliente  = "+cliente.getID());
 
         }
         st.executeQuery(" SET FOREIGN_KEY_CHECKS=1 ");
-      /*  System.out.println("UPDATE cliente SET  nomeCliente = '"+cliente.getNome()+"'," +
+       System.out.println("UPDATE cliente SET  nomeCliente = '"+cliente.getNome()+"'," +
                 " CPF = '"+cliente.getCpf()+"' ," +
                 "  número_endereço = "+cliente.getEnd_num()+"," +
                 "Complemento = '" + cliente.getComplemento()+ "'," +
                 " Senha = '" +cliente.getSenha()+"'"+","+
                 "endereçoCliente_idendereçoCliente = " +cliente.getEndereco().getId() +
-                " where nomeCliente like '"+cliente.getNome()+"' and CPF = "+cliente.getCpf());*/
+                " where nomeCliente like '"+cliente.getNome()+"' and CPF = "+cliente.getCpf());
 
         c.close();
 
         return new ClienteDAO().BuscaClienteID(cliente.getID());
+
+
     }
 }

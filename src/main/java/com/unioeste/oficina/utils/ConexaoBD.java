@@ -23,15 +23,15 @@ public class ConexaoBD {
 
             Class.forName(driverName);
 
-            String url = "jdbc:mariadb://c9cujduvu830eexs.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/eksp46ld8nijkrli";
+           /* String url = "jdbc:mariadb://c9cujduvu830eexs.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/eksp46ld8nijkrli";
             String user = "phryiu84huu99igi";
-            String password = "sff4p0egqwaypaz4";
+            String password = "sff4p0egqwaypaz4";*/
 
 
 
-          /*    String url = "jdbc:mariadb://localhost:3306/oficina?";
+              String url = "jdbc:mariadb://localhost:3306/oficina?";
               String user = "root";
-              String password = "";*/
+              String password = "";
             connection = DriverManager.getConnection(url, user, password);
 
             //connection = DriverManager.getConnection("mariadb://phryiu84huu99igi:sff4p0egqwaypaz4@c9cujduvu830eexs.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/eksp46ld8nijkrli");
